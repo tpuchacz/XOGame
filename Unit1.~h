@@ -23,9 +23,10 @@ __published:	// IDE-managed Components
         TPanel *Panel8;
         TPanel *Panel9;
         TButton *ButtonClose;
-        TButton *Button1;
+        TButton *ButtonNewGame;
+        TLabel *LabelInfo;
         void __fastcall ButtonCloseClick(TObject *Sender);
-        void __fastcall Button1Click(TObject *Sender);
+        void __fastcall ButtonNewGameClick(TObject *Sender);
         void __fastcall FormDestroy(TObject *Sender);
         void __fastcall Panel1Click(TObject *Sender);
         void __fastcall Panel2Click(TObject *Sender);
@@ -38,8 +39,10 @@ __published:	// IDE-managed Components
         void __fastcall Panel9Click(TObject *Sender);
 private:	// User declarations
         TPanel *Current;
-        TPanel *Panels[9];
-        GraKolkoKrzyzyk * gra;
+        TPanel *Panels[3][3];
+        GameXO * game;
+        int x;
+        int y;
 public:		// User declarations
         __fastcall TForm1(TComponent* Owner);
 };

@@ -1,10 +1,13 @@
 #include <ExtCtrls.hpp>
-class GraKolkoKrzyzyk{
+class GameXO{
 	public:
-		GraKolkoKrzyzyk();
-		void nowaGra(TPanel *Panels[]);
-                void sprawdzKolejnosc(TPanel *Panel);
+		GameXO(TPanel *Panels[3][3]);
+		void NewGame();
+                void CheckTurn(int x, int y);
+                void CheckWin(int x, int y);
 	private:
-	        int kolejnosc; //L. nieparzyste - gracz 1
-                                //L. parzyste - gracz 2
+	        int turn; //L. nieparzyste - gracz 1
+                          //L. parzyste - gracz 2
+                TPanel *Panels[3][3];
+                TLabel *LabelInfo;
 };

@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 1302
-  Top = 350
+  Left = 1157
+  Top = 308
   BorderStyle = bsNone
   Caption = 'K'#243#322'ko Krzy'#380'yk'
   ClientHeight = 651
@@ -15,7 +15,20 @@ object Form1: TForm1
   OnDestroy = FormDestroy
   PixelsPerInch = 96
   TextHeight = 13
+  object LabelInfo: TLabel
+    Left = 8
+    Top = 8
+    Width = 6
+    Height = 32
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -27
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+  end
   object Panel1: TPanel
+    Tag = 2
     Left = 0
     Top = 50
     Width = 200
@@ -32,6 +45,7 @@ object Form1: TForm1
     OnClick = Panel1Click
   end
   object Panel2: TPanel
+    Tag = 7
     Left = 200
     Top = 50
     Width = 200
@@ -48,6 +62,7 @@ object Form1: TForm1
     OnClick = Panel2Click
   end
   object Panel3: TPanel
+    Tag = 6
     Left = 400
     Top = 50
     Width = 200
@@ -64,6 +79,7 @@ object Form1: TForm1
     OnClick = Panel3Click
   end
   object Panel4: TPanel
+    Tag = 9
     Left = 0
     Top = 250
     Width = 200
@@ -80,6 +96,7 @@ object Form1: TForm1
     OnClick = Panel4Click
   end
   object Panel5: TPanel
+    Tag = 5
     Left = 200
     Top = 250
     Width = 200
@@ -96,6 +113,7 @@ object Form1: TForm1
     OnClick = Panel5Click
   end
   object Panel6: TPanel
+    Tag = 1
     Left = 400
     Top = 250
     Width = 200
@@ -112,6 +130,7 @@ object Form1: TForm1
     OnClick = Panel6Click
   end
   object Panel7: TPanel
+    Tag = 4
     Left = 0
     Top = 450
     Width = 200
@@ -128,6 +147,7 @@ object Form1: TForm1
     OnClick = Panel7Click
   end
   object Panel8: TPanel
+    Tag = 3
     Left = 200
     Top = 450
     Width = 200
@@ -144,6 +164,7 @@ object Form1: TForm1
     OnClick = Panel8Click
   end
   object Panel9: TPanel
+    Tag = 8
     Left = 400
     Top = 450
     Width = 200
@@ -174,13 +195,13 @@ object Form1: TForm1
     TabOrder = 9
     OnClick = ButtonCloseClick
   end
-  object Button1: TButton
-    Left = 280
-    Top = 16
+  object ButtonNewGame: TButton
+    Left = 475
+    Top = 0
     Width = 75
-    Height = 25
+    Height = 50
     Caption = 'Nowa Gra'
     TabOrder = 10
-    OnClick = Button1Click
+    OnClick = ButtonNewGameClick
   end
 end
