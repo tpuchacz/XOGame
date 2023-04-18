@@ -10,7 +10,7 @@
 #include <ExtCtrls.hpp>
 #include "Game.h"
 //---------------------------------------------------------------------------
-class TForm1 : public TForm
+class TFormTicTacToe : public TForm
 {
 __published:	// IDE-managed Components
         TPanel *Panel1;
@@ -25,8 +25,7 @@ __published:	// IDE-managed Components
         TButton *ButtonClose;
         TButton *ButtonNewGame;
         TLabel *LabelInfo;
-        TLabel *LabelCross;
-        TLabel *LabelCircle;
+        TButton *ButtonStats;
         void __fastcall ButtonCloseClick(TObject *Sender);
         void __fastcall ButtonNewGameClick(TObject *Sender);
         void __fastcall FormDestroy(TObject *Sender);
@@ -40,6 +39,7 @@ __published:	// IDE-managed Components
         void __fastcall Panel8Click(TObject *Sender);
         void __fastcall Panel9Click(TObject *Sender);
         void __fastcall FormCreate(TObject *Sender);
+        void __fastcall ButtonStatsClick(TObject *Sender);
 private:	// User declarations
         TPanel *Current;
         TPanel *Panels[3][3];
@@ -47,9 +47,9 @@ private:	// User declarations
         int x;
         int y;
 public:		// User declarations
-        __fastcall TForm1(TComponent* Owner);
+        __fastcall TFormTicTacToe(TComponent* Owner);
 };
 //---------------------------------------------------------------------------
-extern PACKAGE TForm1 *Form1;
+extern PACKAGE TFormTicTacToe *FormTicTacToe;
 //---------------------------------------------------------------------------
 #endif

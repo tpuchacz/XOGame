@@ -1,11 +1,11 @@
-object Form1: TForm1
-  Left = 1137
-  Top = 308
+object FormTicTacToe: TFormTicTacToe
+  Left = 1064
+  Top = 302
   BorderStyle = bsNone
   Caption = 'K'#243#322'ko Krzy'#380'yk'
   ClientHeight = 651
   ClientWidth = 600
-  Color = clWhite
+  Color = clBlack
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -23,32 +23,6 @@ object Form1: TForm1
     Height = 32
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clRed
-    Font.Height = -27
-    Font.Name = 'MS Sans Serif'
-    Font.Style = []
-    ParentFont = False
-  end
-  object LabelCross: TLabel
-    Left = 352
-    Top = 8
-    Width = 96
-    Height = 32
-    Caption = 'Krzy'#380'yk:'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clGreen
-    Font.Height = -27
-    Font.Name = 'MS Sans Serif'
-    Font.Style = []
-    ParentFont = False
-  end
-  object LabelCircle: TLabel
-    Left = 240
-    Top = 8
-    Width = 74
-    Height = 32
-    Caption = 'K'#243#322'ko:'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clNavy
     Font.Height = -27
     Font.Name = 'MS Sans Serif'
     Font.Style = []
@@ -215,9 +189,9 @@ object Form1: TForm1
     Cursor = crHandPoint
     Caption = 'X'
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clRed
-    Font.Height = -11
-    Font.Name = 'MS Sans Serif'
+    Font.Color = clWhite
+    Font.Height = -27
+    Font.Name = 'Calibri'
     Font.Style = []
     ParentFont = False
     TabOrder = 9
@@ -230,7 +204,29 @@ object Form1: TForm1
     Height = 50
     Cursor = crHandPoint
     Caption = 'Nowa Gra'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Calibri'
+    Font.Style = []
+    ParentFont = False
     TabOrder = 10
     OnClick = ButtonNewGameClick
+  end
+  object ButtonStats: TButton
+    Left = 375
+    Top = 0
+    Width = 100
+    Height = 50
+    Cursor = crHandPoint
+    Caption = 'Poka'#380' statystyki'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Calibri'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 11
+    OnClick = ButtonStatsClick
   end
 end
