@@ -12,16 +12,6 @@ TForm1 *Form1;
 __fastcall TForm1::TForm1(TComponent* Owner)
         : TForm(Owner)
 {
-        Panels[0][0] = Panel1;
-        Panels[0][1] = Panel2;
-        Panels[0][2] = Panel3;
-        Panels[1][0] = Panel4;
-        Panels[1][1] = Panel5;
-        Panels[1][2] = Panel6;
-        Panels[2][0] = Panel7;
-        Panels[2][1] = Panel8;
-        Panels[2][2] = Panel9;
-        game = new GameXO(Panels,LabelInfo);
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::ButtonCloseClick(TObject *Sender)
@@ -109,6 +99,21 @@ void __fastcall TForm1::Panel9Click(TObject *Sender)
         x = 2;
         y = 2;
         game->CheckTurn(x,y);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::FormCreate(TObject *Sender)
+{
+        Panels[0][0] = Panel1;
+        Panels[0][1] = Panel2;
+        Panels[0][2] = Panel3;
+        Panels[1][0] = Panel4;
+        Panels[1][1] = Panel5;
+        Panels[1][2] = Panel6;
+        Panels[2][0] = Panel7;
+        Panels[2][1] = Panel8;
+        Panels[2][2] = Panel9;
+        game = new GameXO(Panels,LabelInfo);
 }
 //---------------------------------------------------------------------------
 

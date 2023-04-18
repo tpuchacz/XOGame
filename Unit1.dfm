@@ -1,17 +1,18 @@
 object Form1: TForm1
-  Left = 1157
+  Left = 1137
   Top = 308
   BorderStyle = bsNone
   Caption = 'K'#243#322'ko Krzy'#380'yk'
   ClientHeight = 651
   ClientWidth = 600
-  Color = clBtnFace
+  Color = clWhite
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   OldCreateOrder = False
+  OnCreate = FormCreate
   OnDestroy = FormDestroy
   PixelsPerInch = 96
   TextHeight = 13
@@ -22,6 +23,32 @@ object Form1: TForm1
     Height = 32
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clRed
+    Font.Height = -27
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+  end
+  object LabelCross: TLabel
+    Left = 352
+    Top = 8
+    Width = 96
+    Height = 32
+    Caption = 'Krzy'#380'yk:'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clGreen
+    Font.Height = -27
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+  end
+  object LabelCircle: TLabel
+    Left = 240
+    Top = 8
+    Width = 74
+    Height = 32
+    Caption = 'K'#243#322'ko:'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clNavy
     Font.Height = -27
     Font.Name = 'MS Sans Serif'
     Font.Style = []
@@ -185,6 +212,7 @@ object Form1: TForm1
     Top = 0
     Width = 50
     Height = 50
+    Cursor = crHandPoint
     Caption = 'X'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clRed
@@ -200,6 +228,7 @@ object Form1: TForm1
     Top = 0
     Width = 75
     Height = 50
+    Cursor = crHandPoint
     Caption = 'Nowa Gra'
     TabOrder = 10
     OnClick = ButtonNewGameClick

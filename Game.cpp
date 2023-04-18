@@ -1,7 +1,6 @@
 #include "Game.h"
 GameXO::GameXO(TPanel *Panels[3][3], TLabel *LabelInfo)
 {
-	turn = true;
         for(int i = 0; i < 3; i++)
 	{
                 for(int j = 0; j<3; j++)
@@ -10,19 +9,28 @@ GameXO::GameXO(TPanel *Panels[3][3], TLabel *LabelInfo)
                 }
 	}
         GameXO::LabelInfo = LabelInfo;
+        NewGame();
 }
 
 
-//Czysci pole i resetuje kolejnosc
+//Resetuje statystyki oraz pole gry
 void GameXO::NewGame()
 {
-	turn = true;
+        winsCross = 0;
+        winsCircle = 0;
         LabelInfo->Caption = "";
-	for(int i = 0; i < 3; i++)
+        ClearField();
+}
+
+void GameXO::ClearField()
+{
+        turn = 1;
+        for(int i = 0; i < 3; i++)
 	{
                 for(int j = 0; j<3; j++)
                 {
                         Panels[i][j]->Caption = "";
+                        magicSquare[i][j] = 0;
                 }
 	}
 }
@@ -33,15 +41,17 @@ void GameXO::CheckTurn(int x, int y){
                 if(turn % 2 == 1)
                 {
                         Panels[x][y]->Caption = "X";
-                        turn = false;
+                        magicSquare[x][y] = Panels[x][y]->Tag;
+                        ++turn;
                 }else if(turn % 2 == 0)
                 {
                         Panels[x][y]->Caption = "O";
-                        turn = true;
+                        magicSquare[x][y] = -Panels[x][y]->Tag; 
+                        ++turn;
                 }
                 else if(turn == 9)
                 {
-                //Przy 9 ruchu gra zostaje zakonczona remisem
+                        NewGame();
                 }
                 CheckWin(x,y);
         }else
@@ -50,6 +60,36 @@ void GameXO::CheckTurn(int x, int y){
 
 void GameXO::CheckWin(int x, int y)
 {
-        //Sprawdzenie zwyciezcy przy pomocy magicznego kwadratu
-        int magicSquare = Panels[x][y]->Tag;
+        //Sprawdzenie zwyciezcy z pomoc¹ magicznego kwadratu
+        //W przypadku implementacji wyboru rozmiaru pola trzeba
+        //dostosowac koordynaty
+        if((magicSquare[x][0] + magicSquare[x][1] + magicSquare[x][2]) == 15
+        || (magicSquare[0][y] + magicSquare[1][y] + magicSquare[2][y]) == 15
+        || (magicSquare[0][0] + magicSquare[1][1] + magicSquare[2][2]) == 15
+        || (magicSquare[0][2] + magicSquare[1][1] + magicSquare[2][0]) == 15)
+        {
+                Application->MessageBox("Wygrywa krzy¿yk!","Gratulacje!");
+                ++winsCross;
+                ClearField();        
+        }
+        else if((magicSquare[x][0] + magicSquare[x][1] + magicSquare[x][2]) == -15
+             || (magicSquare[0][y] + magicSquare[1][y] + magicSquare[2][y]) == -15
+             || (magicSquare[0][0] + magicSquare[1][1] + magicSquare[2][2]) == -15
+             || (magicSquare[0][2] + magicSquare[1][1] + magicSquare[2][0]) == -15)
+        {
+                Application->MessageBox("Wygrywa kó³ko!","Gratulacje!");
+                ++winsCircle;
+                ClearField();        
+        }
 }
+
+int GameXO::GetCrossWins()
+{
+        return winsCross;
+}
+
+int GameXO::GetCircleWins()
+{
+        return winsCircle;
+}
+
