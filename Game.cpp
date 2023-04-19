@@ -42,18 +42,20 @@ void GameXO::CheckTurn(int x, int y){
         if(Panels[x][y]->Caption == ""){
                 if(turn % 2 == 1)
                 {
-                        Panels[x][y]->Caption = "X";
-                        magicSquare[x][y] = Panels[x][y]->Tag;
-                        ++turn;
+                        if(turn == 9)
+                        {
+                                Application->MessageBox("Remis", ":("); 
+                                ClearField(); 
+                        }else{
+                                Panels[x][y]->Caption = "X";
+                                magicSquare[x][y] = Panels[x][y]->Tag;
+                                ++turn;
+                        }
                 }else if(turn % 2 == 0)
                 {
                         Panels[x][y]->Caption = "O";
                         magicSquare[x][y] = -Panels[x][y]->Tag; 
                         ++turn;
-                }
-                else if(turn == 9)
-                {
-                        NewGame();
                 }
                 CheckWin(x,y);
         }else

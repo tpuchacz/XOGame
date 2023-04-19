@@ -14,25 +14,6 @@ __fastcall TFormTicTacToe::TFormTicTacToe(TComponent* Owner)
 {
 }
 //---------------------------------------------------------------------------
-void __fastcall TFormTicTacToe::ButtonCloseClick(TObject *Sender)
-{
-        Close();
-}
-//---------------------------------------------------------------------------
-void __fastcall TFormTicTacToe::ButtonNewGameClick(TObject *Sender)
-{
-        //tekst,tytu³,flagi == kliknietyPrzycisk
-        if(Application->MessageBoxA(
-			"Czy chcesz rozpocz¹c now¹ grê?\n(Statystyki zostana usuniete)",
-			"Nowa gra",
-			MB_OKCANCEL || MB_ICONQUESTION) == IDOK)
-        {
-                game->NewGame();
-        }
-}
-//---------------------------------------------------------------------------
-
-
 void __fastcall TFormTicTacToe::FormDestroy(TObject *Sender)
 {
         delete game;        
@@ -124,9 +105,29 @@ void __fastcall TFormTicTacToe::FormCreate(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TFormTicTacToe::ButtonStatsClick(TObject *Sender)
+void __fastcall TFormTicTacToe::N3Click(TObject *Sender)
 {
-        game->DisplayStatistics();        
+        game->DisplayStatistics();
 }
 //---------------------------------------------------------------------------
+
+void __fastcall TFormTicTacToe::N2Click(TObject *Sender)
+{
+        //tekst,tytu³,flagi == kliknietyPrzycisk
+        if(Application->MessageBoxA(
+			"Czy chcesz rozpocz¹c now¹ grê?\n(Statystyki zostana usuniete)",
+			"Nowa gra",
+			MB_OKCANCEL || MB_ICONQUESTION) == IDOK)
+        {
+                game->NewGame();
+        }        
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFormTicTacToe::N1Click(TObject *Sender)
+{
+        Close();        
+}
+//---------------------------------------------------------------------------
+
 
