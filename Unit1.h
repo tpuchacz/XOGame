@@ -10,6 +10,8 @@
 #include <ExtCtrls.hpp>
 #include "Game.h"
 #include <Menus.hpp>
+#include <jpeg.hpp>
+#include <Buttons.hpp>
 //---------------------------------------------------------------------------
 class TFormTicTacToe : public TForm
 {
@@ -29,6 +31,12 @@ __published:	// IDE-managed Components
         TMenuItem *N1;
         TMenuItem *N2;
         TMenuItem *N3;
+        TImage *Image1;
+        TPopupMenu *PopupMenu1;
+        TButton *Button1;
+        TMenuItem *ijopji1;
+        TImage *Image2;
+        TSpeedButton *SpeedButton1;
         void __fastcall FormDestroy(TObject *Sender);
         void __fastcall Panel1Click(TObject *Sender);
         void __fastcall Panel2Click(TObject *Sender);
@@ -43,6 +51,12 @@ __published:	// IDE-managed Components
         void __fastcall N3Click(TObject *Sender);
         void __fastcall N2Click(TObject *Sender);
         void __fastcall N1Click(TObject *Sender);
+        void __fastcall Image1MouseDown(TObject *Sender,
+          TMouseButton Button, TShiftState Shift, int X, int Y);
+        void __fastcall Button1Click(TObject *Sender);
+        void __fastcall SpeedButton1Click(TObject *Sender);
+        void __fastcall Image2MouseDown(TObject *Sender,
+          TMouseButton Button, TShiftState Shift, int X, int Y);
 private:	// User declarations
         TPanel *Current;
         TPanel *Panels[3][3];
