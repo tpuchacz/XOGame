@@ -105,13 +105,13 @@ void __fastcall TFormTicTacToe::FormCreate(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TFormTicTacToe::N3Click(TObject *Sender)
+void __fastcall TFormTicTacToe::N3Click(TObject *Sender)//Opcja Statystyki z menu
 {
         game->DisplayStatistics();
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TFormTicTacToe::N2Click(TObject *Sender)
+void __fastcall TFormTicTacToe::N2Click(TObject *Sender)//Opcja Nowa Gra z menu
 {
         //tekst,tytu³,flagi == kliknietyPrzycisk
         if(Application->MessageBoxA(
@@ -124,13 +124,13 @@ void __fastcall TFormTicTacToe::N2Click(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TFormTicTacToe::N1Click(TObject *Sender)
+void __fastcall TFormTicTacToe::N1Click(TObject *Sender)//Opcja Zakoñcz z menu
 {
         Close();        
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TFormTicTacToe::Image1MouseDown(TObject *Sender,
+void __fastcall TFormTicTacToe::BackgroundImageMouseDown(TObject *Sender,
       TMouseButton Button, TShiftState Shift, int X, int Y)
 {
   if (Button == mbLeft)
@@ -158,11 +158,43 @@ void __fastcall TFormTicTacToe::SpeedButton1Click(TObject *Sender)
 void __fastcall TFormTicTacToe::Image2MouseDown(TObject *Sender,
       TMouseButton Button, TShiftState Shift, int X, int Y)
 {
-  if (Button == mbLeft)
-  {
-    SendMessage(Handle, WM_LBUTTONUP, 0, 0);
-    SendMessage(Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
-  }
+        BackgroundImageMouseDown(Sender, Button, Shift, X, Y);
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TFormTicTacToe::SpeedButton2Click(TObject *Sender)
+{
+        Application->MainForm->WindowState = wsMinimized;
+        //Poprawic
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TFormTicTacToe::Image3Click(TObject *Sender)
+{
+        PopupMenu2->Popup(FormTicTacToe->Left,FormTicTacToe->Top+30);        
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFormTicTacToe::Zakocz1Click(TObject *Sender)
+{
+        Close();        
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFormTicTacToe::Minimalizuj1Click(TObject *Sender)
+{
+        SpeedButton2Click(Sender);
+}
+//---------------------------------------------------------------------------
+
+
+
+void __fastcall TFormTicTacToe::Label1MouseDown(TObject *Sender,
+      TMouseButton Button, TShiftState Shift, int X, int Y)
+{
+        BackgroundImageMouseDown(Sender, Button, Shift, X, Y);        
 }
 //---------------------------------------------------------------------------
 
