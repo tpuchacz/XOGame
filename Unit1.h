@@ -37,6 +37,7 @@ __published:	// IDE-managed Components
         TMenuItem *ijopji1;
         TImage *Image2;
         TSpeedButton *SpeedButton1;
+        TMenuItem *Nowagra1;
         void __fastcall FormDestroy(TObject *Sender);
         void __fastcall Panel1Click(TObject *Sender);
         void __fastcall Panel2Click(TObject *Sender);

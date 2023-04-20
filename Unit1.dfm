@@ -4,7 +4,7 @@ object FormTicTacToe: TFormTicTacToe
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsNone
   Caption = 'K'#243#322'ko Krzy'#380'yk'
-  ClientHeight = 711
+  ClientHeight = 750
   ClientWidth = 734
   Color = clBlack
   Font.Charset = DEFAULT_CHARSET
@@ -2131,7 +2131,7 @@ object FormTicTacToe: TFormTicTacToe
   OldCreateOrder = False
   OnCreate = FormCreate
   OnDestroy = FormDestroy
-  PixelsPerInch = 96
+  PixelsPerInch = 100
   TextHeight = 13
   object LabelInfo: TLabel
     Left = 8
@@ -11342,15 +11342,16 @@ object FormTicTacToe: TFormTicTacToe
     end
   end
   object PopupMenu1: TPopupMenu
+    BiDiMode = bdLeftToRight
     MenuAnimation = [maTopToBottom]
+    ParentBiDiMode = False
     Left = 40
     Top = 72
     object ijopji1: TMenuItem
-      Caption = 'ijopji'
+      Caption = 'Statystyki'
     end
-    object TMenuItem
-    end
-    object TMenuItem
+    object Nowagra1: TMenuItem
+      Caption = 'Nowa Gra'
     end
   end
 end

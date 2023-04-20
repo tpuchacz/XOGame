@@ -144,7 +144,7 @@ void __fastcall TFormTicTacToe::Image1MouseDown(TObject *Sender,
 
 void __fastcall TFormTicTacToe::Button1Click(TObject *Sender)
 {
-        PopupMenu1->Popup(FormTicTacToe->Left,FormTicTacToe->Top);
+        PopupMenu1->Popup(FormTicTacToe->Left+592,FormTicTacToe->Top+30);
 }
 //---------------------------------------------------------------------------
 
