@@ -131,3 +131,14 @@ void __fastcall TFormTicTacToe::N1Click(TObject *Sender)
 //---------------------------------------------------------------------------
 
 
+
+void __fastcall TFormTicTacToe::Image1MouseDown(TObject *Sender,
+      TMouseButton Button, TShiftState Shift, int X, int Y)
+{
+        if (Button == mbLeft)
+  {
+    SendMessage(Handle, WM_LBUTTONUP, 0, 0);
+    SendMessage(Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
+  }
+}
+//---------------------------------------------------------------------------
