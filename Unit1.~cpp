@@ -105,13 +105,13 @@ void __fastcall TFormTicTacToe::FormCreate(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TFormTicTacToe::N3Click(TObject *Sender)
+void __fastcall TFormTicTacToe::N3Click(TObject *Sender)//Opcja Statystyki z menu
 {
         game->DisplayStatistics();
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TFormTicTacToe::N2Click(TObject *Sender)
+void __fastcall TFormTicTacToe::N2Click(TObject *Sender)//Opcja Nowa Gra z menu
 {
         //tekst,tytu³,flagi == kliknietyPrzycisk
         if(Application->MessageBoxA(
@@ -124,10 +124,100 @@ void __fastcall TFormTicTacToe::N2Click(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TFormTicTacToe::N1Click(TObject *Sender)
+void __fastcall TFormTicTacToe::N1Click(TObject *Sender)//Opcja Zakoñcz z menu
 {
         Close();        
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TFormTicTacToe::BackgroundImageMouseDown(TObject *Sender,
+      TMouseButton Button, TShiftState Shift, int X, int Y) //Przesuwanie okienka za t³o
+{
+  if (Button == mbLeft)
+  {
+    SendMessage(Handle, WM_LBUTTONUP, 0, 0);
+    SendMessage(Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
+  }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFormTicTacToe::ButtonCloseClick(TObject *Sender)
+{
+        Close();        
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TFormTicTacToe::TitleBarImageMouseDown(TObject *Sender,
+      TMouseButton Button, TShiftState Shift, int X, int Y) //Przesuwanie okienka za title bar
+{
+        BackgroundImageMouseDown(Sender, Button, Shift, X, Y);
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TFormTicTacToe::ButtonMinimizeClick(TObject *Sender)
+{
+        Application->Minimize();
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TFormTicTacToe::IconClick(TObject *Sender)
+{
+        IconPopupMenu->Popup(FormTicTacToe->Left,FormTicTacToe->Top+30);        
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFormTicTacToe::Zakocz1Click(TObject *Sender)
+{
+        Close();        
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFormTicTacToe::Minimalizuj1Click(TObject *Sender)
+{
+        Application->Minimize();
+}
+//---------------------------------------------------------------------------
+
+
+
+void __fastcall TFormTicTacToe::TitleLabelMouseDown(TObject *Sender,
+      TMouseButton Button, TShiftState Shift, int X, int Y) //Przesuwanie okienka za tytu³
+{
+        BackgroundImageMouseDown(Sender, Button, Shift, X, Y);        
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFormTicTacToe::MinimizeOptionClick(TObject *Sender)
+{
+        Application->Minimize();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFormTicTacToe::CloseOptionClick(TObject *Sender)
+{
+        Close();        
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFormTicTacToe::DisplayStatsOptionClick(TObject *Sender)
+{
+        game->DisplayStatistics();        
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TFormTicTacToe::NewGameOptionClick(TObject *Sender)
+{
+        if(Application->MessageBoxA(
+			"Czy chcesz rozpocz¹c now¹ grê?\n(Statystyki zostana zresetowane)",
+			"Nowa gra",
+			MB_OKCANCEL || MB_ICONQUESTION) == IDOK)
+        {
+                game->NewGame();
+        }
+}
+//---------------------------------------------------------------------------
 

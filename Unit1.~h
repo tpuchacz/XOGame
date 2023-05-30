@@ -10,6 +10,9 @@
 #include <ExtCtrls.hpp>
 #include "Game.h"
 #include <Menus.hpp>
+#include <jpeg.hpp>
+#include <Buttons.hpp>
+#include <Graphics.hpp>
 //---------------------------------------------------------------------------
 class TFormTicTacToe : public TForm
 {
@@ -23,12 +26,17 @@ __published:	// IDE-managed Components
         TPanel *Panel7;
         TPanel *Panel8;
         TPanel *Panel9;
-        TLabel *LabelInfo;
-        TMainMenu *MainMenu1;
-        TMenuItem *Opcje1;
-        TMenuItem *N1;
-        TMenuItem *N2;
-        TMenuItem *N3;
+        TImage *BackgroundImage;
+        TPopupMenu *IconPopupMenu;
+        TMenuItem *DisplayStatsOption;
+        TImage *TitleBarImage;
+        TSpeedButton *ButtonClose;
+        TMenuItem *NewGameOption;
+        TSpeedButton *ButtonMinimize;
+        TImage *Icon;
+        TLabel *TitleLabel;
+        TMenuItem *MinimizeOption;
+        TMenuItem *CloseOption;
         void __fastcall FormDestroy(TObject *Sender);
         void __fastcall Panel1Click(TObject *Sender);
         void __fastcall Panel2Click(TObject *Sender);
@@ -43,6 +51,21 @@ __published:	// IDE-managed Components
         void __fastcall N3Click(TObject *Sender);
         void __fastcall N2Click(TObject *Sender);
         void __fastcall N1Click(TObject *Sender);
+        void __fastcall BackgroundImageMouseDown(TObject *Sender,
+          TMouseButton Button, TShiftState Shift, int X, int Y);
+        void __fastcall ButtonCloseClick(TObject *Sender);
+        void __fastcall TitleBarImageMouseDown(TObject *Sender,
+          TMouseButton Button, TShiftState Shift, int X, int Y);
+        void __fastcall ButtonMinimizeClick(TObject *Sender);
+        void __fastcall IconClick(TObject *Sender);
+        void __fastcall Zakocz1Click(TObject *Sender);
+        void __fastcall Minimalizuj1Click(TObject *Sender);
+        void __fastcall TitleLabelMouseDown(TObject *Sender,
+          TMouseButton Button, TShiftState Shift, int X, int Y);
+        void __fastcall MinimizeOptionClick(TObject *Sender);
+        void __fastcall CloseOptionClick(TObject *Sender);
+        void __fastcall DisplayStatsOptionClick(TObject *Sender);
+        void __fastcall NewGameOptionClick(TObject *Sender);
 private:	// User declarations
         TPanel *Current;
         TPanel *Panels[3][3];
